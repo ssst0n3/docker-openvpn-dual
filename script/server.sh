@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 route=`ip -6 route show default`
 
 ./sysctl.sh
