@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -x 
+
+YOUR_CLIENT_NAME=clientname
+
+cd /etc/openvpn/easy-rsa
+./easyrsa build-client-full $YOUR_CLIENT_NAME nopass
+./easyrsa build-client-full $YOUR_CLIENT_NAME
+
+cd /etc/openvpn
+cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf $YOUR_CLIENT_NAME.ovpn
+echo "key-direction 1" >> $YOUR_CLIENT_NAME.ovpn
+echo "<ca>" >> $YOUR_CLIENT_NAME.ovpn
+sed -n '/BEGIN CERTIFICATE/,/END CERTIFICATE/p' < easy-rsa/pki/ca.crt >> client.ovpn
+echo "</ca>" >> $YOUR_CLIENT_NAME.ovpn
+echo "<cert>" >> $YOUR_CLIENT_NAME.ovpn
+sed -n '/BEGIN CERTIFICATE/,/END CERTIFICATE/p' < easy-rsa/pki/issued/$YOUR_CLIENT_NAME.crt >> client.ovpn
+echo "</cert>" >> $YOUR_CLIENT_NAME.ovpn
+echo "<key>" >> $YOUR_CLIENT_NAME.ovpn
+sed -n '/BEGIN PRIVATE KEY/,/END PRIVATE KEY/p' < easy-rsa/pki/private/$YOUR_CLIENT_NAME.key >> client.ovpn
+echo "</key>" >> $YOUR_CLIENT_NAME.ovpn
+echo "<tls-auth>" >> $YOUR_CLIENT_NAME.ovpn
+sed -n '/BEGIN OpenVPN Static key V1/,/END OpenVPN Static key V1/p' < server/ta.key >> client.ovpn
+echo "</tls-auth>" >> $YOUR_CLIENT_NAME.ovpn
