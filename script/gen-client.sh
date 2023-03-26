@@ -1,6 +1,7 @@
 #!/bin/bash
 
 YOUR_CLIENT_NAME=$1
+SERVER=$2
 FILE_CLIENT=/etc/openvpn/client/$YOUR_CLIENT_NAME.ovpn
 
 cd /etc/openvpn/easy-rsa
@@ -9,6 +10,9 @@ cd /etc/openvpn/easy-rsa
 
 cd /etc/openvpn
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf $FILE_CLIENT
+
+sed -i "s/my-server-1/$SERVER/g" $FILE_CLIENT
+
 echo "key-direction 1" >> $FILE_CLIENT
 echo "<ca>" >> $FILE_CLIENT
 sed -n '/BEGIN CERTIFICATE/,/END CERTIFICATE/p' < easy-rsa/pki/ca.crt >> $FILE_CLIENT
