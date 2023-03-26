@@ -6,4 +6,6 @@ docker run --net host --privileged -tid -v $DATA:/etc/openvpn --name openvpn ope
 ```
 
 
+```
 docker run --rm -v $DATA:/etc/openvpn openvpn /script/gen-client.sh clientname
+```
