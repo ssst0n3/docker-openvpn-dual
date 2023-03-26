@@ -3,6 +3,7 @@
 FILE_SERVER="/etc/openvpn/server/server.conf"
 cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf $FILE_SERVER
 
+sed -i 's/dev tun/dev tun1/g'
 sed -i 's/proto udp/proto udp6/g' $FILE_SERVER
 echo "topology subnet" >> $FILE_SERVER
 echo "server 192.168.220.0 255.255.255.0" >> $FILE_SERVER
