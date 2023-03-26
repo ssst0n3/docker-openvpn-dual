@@ -2,7 +2,7 @@
 
 
 ```
-git https://github.com/ssst0n3/docker-openvpn-dual.git
+git clone https://github.com/ssst0n3/docker-openvpn-dual.git
 cd docker-openvpn-dual
 ```
 
