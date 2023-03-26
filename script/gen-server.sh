@@ -9,6 +9,7 @@ echo "server 192.168.220.0 255.255.255.0" >> $FILE_SERVER
 echo "server-ipv6 fd00:c0a8:dc00::/64" >> $FILE_SERVER
 echo 'push "redirect-gateway def1"' >> $FILE_SERVER
 echo 'push "route-ipv6 2000::/3"' >> $FILE_SERVER
+echo 'data-ciphers AES-256-CBC' >> $FILE_SERVER
 
 sed -i '/explicit-exit-notify/d' $FILE_SERVER
 sed -i '/server 10.8.0.0 255.255.255.0/d' $FILE_SERVER

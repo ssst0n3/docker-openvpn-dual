@@ -6,7 +6,6 @@ YOUR_CLIENT_NAME=clientname
 
 cd /etc/openvpn/easy-rsa
 ./easyrsa build-client-full $YOUR_CLIENT_NAME nopass
-./easyrsa build-client-full $YOUR_CLIENT_NAME
 
 cd /etc/openvpn
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf $YOUR_CLIENT_NAME.ovpn
