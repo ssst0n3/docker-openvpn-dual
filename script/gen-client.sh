@@ -2,7 +2,7 @@
 
 set -x 
 
-YOUR_CLIENT_NAME=clientname
+YOUR_CLIENT_NAME=$1
 
 cd /etc/openvpn/easy-rsa
 ./easyrsa build-client-full $YOUR_CLIENT_NAME nopass
