@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x 
-
 YOUR_CLIENT_NAME=$1
 FILE_CLIENT=/etc/openvpn/client/$YOUR_CLIENT_NAME.ovpn
 
@@ -24,3 +22,5 @@ echo "</key>" >> $FILE_CLIENT
 echo "<tls-auth>" >> $FILE_CLIENT
 sed -n '/BEGIN OpenVPN Static key V1/,/END OpenVPN Static key V1/p' < server/ta.key >> $FILE_CLIENT
 echo "</tls-auth>" >> $FILE_CLIENT
+
+cat $FILE_CLIENT
