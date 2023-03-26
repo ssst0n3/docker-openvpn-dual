@@ -6,4 +6,4 @@ route=`ip -6 route show default`
 ./iptables.sh
 
 ip -6 route add $route
-openvpn server.conf
+openvpn /etc/openvpn/server/server.conf
