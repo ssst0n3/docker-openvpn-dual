@@ -12,6 +12,10 @@ cd /etc/openvpn
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf $FILE_CLIENT
 
 sed -i "s/my-server-1/$SERVER/g" $FILE_CLIENT
+sed -i '/ca ca.crt/d' $FILE_CLIENT
+sed -i '/cert client.crt/d' $FILE_CLIENT
+sed -i '/key client.key/d' $FILE_CLIENT
+sed -i '/tls-auth ta.key/d' $FILE_CLIENT
 
 echo "key-direction 1" >> $FILE_CLIENT
 echo "<ca>" >> $FILE_CLIENT
