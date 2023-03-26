@@ -27,4 +27,4 @@ echo "<tls-auth>" >> $FILE_CLIENT
 sed -n '/BEGIN OpenVPN Static key V1/,/END OpenVPN Static key V1/p' < server/ta.key >> $FILE_CLIENT
 echo "</tls-auth>" >> $FILE_CLIENT
 
-cat $FILE_CLIENT
+cat $FILE_CLIENT | grep -v "#" | grep -v ";" | grep -v "&$"
