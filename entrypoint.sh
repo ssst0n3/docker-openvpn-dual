@@ -27,14 +27,13 @@ client() {
     /script/gen-client.sh $CLIENTNAME $SERVER_ADDRESS
 }
 
-
 step=$1
 
-if [[ $step == "setup" ]]; then
+if [[ "$step" == "setup" ]]; then
     setup
-else if [[ $step == "run" ]]; then
+else if [[ "$step" == "run" ]]; then
     run
-else if [[ $step == "client" ]]; then
+else if [[ "$step" == "client" ]]; then
     client $2 $3
 else 
     usage
