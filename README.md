@@ -31,7 +31,7 @@ docker run --rm -v openvpn-ipv6-data:/etc/openvpn openvpn setup
 **3. run openvpn server**
 
 ```
-docker run --net host --privileged -tid -v openvpn-ipv6-data:/etc/openvpn --name openvpn openvpn run
+docker run --net host --privileged -tid -v openvpn-ipv6-data:/etc/openvpn --name openvpn --restart always openvpn run
 ```
 
 **4. generate client config**
