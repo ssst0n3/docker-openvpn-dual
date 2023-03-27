@@ -1,7 +1,4 @@
-# docker openvpn dual stack (ipv6 nat support)
-
-- [x] 4to6
-- [x] 6to4
+# docker openvpn dual stack (4to6, 6to4, ipv6 nat support)
 
 ## What
 
