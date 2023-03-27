@@ -3,6 +3,18 @@
 - [x] 4to6
 - [x] 6to4
 
+## What
+
+I have some machines under three types of network environment.
+
+* Home: broadband with an ipv4 private address and an ipv6 (public) address
+* Office: only ipv4 private address
+* Cloud: both ipv4 public address and ipv6 (public) address
+
+How can I access home from office? 
+
+We can deploy an openvpn server on cloud machine as a jumper.
+
 ## How To
 
 **1. clone source code**
