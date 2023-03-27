@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 usage() {
     echo "entrypoint.sh: entry for scripts"
     echo "usage: $0 <step>"
