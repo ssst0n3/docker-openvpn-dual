@@ -21,19 +21,25 @@ git clone https://github.com/ssst0n3/docker-openvpn-dual.git
 cd docker-openvpn-dual
 ```
 
-**2. run openvpn**
+**2. setup openvpn**
 
 ```
 docker build -t openvpn .
-docker run --net host --privileged -tid -v openvpn-ipv6-data:/etc/openvpn --name openvpn openvpn /entrypoint.sh
+docker run --rm -v openvpn-ipv6-data:/etc/openvpn openvpn setup
 ```
 
-**3. generate client config**
+**3. run openvpn server**
+
+```
+docker run --net host --privileged -tid -v openvpn-ipv6-data:/etc/openvpn --name openvpn openvpn run
+```
+
+**4. generate client config**
 
 ```
 CLIENTNAME=clientname
 SERVER_ADDRESS=1.1.1.1
-docker run --rm -v openvpn-ipv6-data:/etc/openvpn openvpn /script/gen-client.sh $CLIENTNAME $SERVER_ADDRESS > $CLIENTNAME.ovpn
+docker run --rm -v openvpn-ipv6-data:/etc/openvpn openvpn client $CLIENTNAME $SERVER_ADDRESS > $CLIENTNAME.ovpn
 ```
 
 ----
