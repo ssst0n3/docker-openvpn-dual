@@ -1,5 +1,6 @@
 # docker openvpn dual stack (ipv6 nat)
 
+## How To
 
 ```
 git clone https://github.com/ssst0n3/docker-openvpn-dual.git
@@ -15,3 +16,6 @@ docker run --net host --privileged -tid -v openvpn-ipv6-data:/etc/openvpn --name
 ```
 docker run --rm -v openvpn-ipv6-data:/etc/openvpn openvpn /script/gen-client.sh clientname server > ../clientname.ovpn
 ```
+
+tested on 
+- [x] aliyun ecs
