@@ -33,4 +33,4 @@ echo "</tls-auth>" >> $FILE_CLIENT
 
 echo "redirect-gateway def1" >> $FILE_CLIENT
 
-cat $FILE_CLIENT | grep -v "#" | grep -v ";" | grep -v "&$"
+cat $FILE_CLIENT | grep -v "#" | grep -v ";" | grep -v "^$"
