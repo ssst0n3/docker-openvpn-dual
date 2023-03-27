@@ -23,3 +23,7 @@ docker run --rm -v openvpn-ipv6-data:/etc/openvpn openvpn /script/gen-client.sh 
 
 tested on 
 - [x] aliyun ecs
+
+## Reference
+
+* Inspired from [kylemanna/docker-openvpn](https://github.com/kylemanna/docker-openvpn). But the ipv6 support of that project does not work for me.
