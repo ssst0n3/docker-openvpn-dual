@@ -8,7 +8,7 @@ usage() {
     echo "e.g:
     $0 setup
     $0 run
-    $0 client <CLIENT NAME> <SERVER ADDRESS> [NOPASS]
+    $0 client <CLIENT NAME> <SERVER ADDRESS> [PASS]
     "
 }
 
@@ -24,8 +24,12 @@ run() {
 client() {
     CLIENTNAME=$1
     SERVER_ADDRESS=$2
-    NOPASS=$3
-    /script/gen-client.sh $CLIENTNAME $SERVER_ADDRESS $NOPASS
+    PASS=$3
+    NOPASS=""
+    if [[ "$PASS" == "" ]]; then
+        NOPASS="nopass"
+    fi
+    /script/gen-client.sh $CLIENTNAME $SERVER_ADDRESS $PASS $NOPASS
 }
 
 step=$1

@@ -39,8 +39,8 @@ docker run --net host --privileged -tid -v openvpn-ipv6-data:/etc/openvpn --name
 ```
 CLIENTNAME=clientname
 SERVER_ADDRESS=1.1.1.1
-NOPASS=nopass # optional
-docker run --rm -ti -v openvpn-ipv6-data:/etc/openvpn openvpn client $CLIENTNAME $SERVER_ADDRESS $NOPASS> $CLIENTNAME.ovpn
+PASS=password
+docker run --rm -v openvpn-ipv6-data:/etc/openvpn openvpn client $CLIENTNAME $SERVER_ADDRESS $PASS> $CLIENTNAME.ovpn
 ```
 
 ----

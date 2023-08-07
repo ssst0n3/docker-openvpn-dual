@@ -2,11 +2,12 @@
 
 YOUR_CLIENT_NAME=$1
 SERVER=$2
-NOPASS=$3
+PASS=$3
+NOPASS=$4
 FILE_CLIENT=/etc/openvpn/client/$YOUR_CLIENT_NAME.ovpn
 
 cd /etc/openvpn/easy-rsa
-./easyrsa build-client-full $YOUR_CLIENT_NAME $NOPASS > /dev/null
+EASYRSA_PASSOUT=pass:$PASS ./easyrsa build-client-full $YOUR_CLIENT_NAME $NOPASS > /dev/null
 
 
 cd /etc/openvpn
