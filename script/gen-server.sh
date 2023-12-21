@@ -3,6 +3,7 @@
 FILE_SERVER="/etc/openvpn/server/server.conf"
 cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf $FILE_SERVER
 
+sed -i 's/AES-256-CBC/AES-256-GCM/g' $FILE_SERVER
 sed -i 's/dev tun/dev tun1/g' $FILE_SERVER
 sed -i 's/proto udp/proto udp6/g' $FILE_SERVER
 echo "topology subnet" >> $FILE_SERVER

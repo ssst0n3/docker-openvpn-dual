@@ -13,6 +13,7 @@ EASYRSA_PASSOUT=pass:$PASS ./easyrsa build-client-full $YOUR_CLIENT_NAME $NOPASS
 cd /etc/openvpn
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf $FILE_CLIENT
 
+sed -i 's/AES-256-CBC/AES-256-GCM/g' $FILE_CLIENT
 sed -i "s/my-server-1/$SERVER/g" $FILE_CLIENT
 sed -i '/ca ca.crt/d' $FILE_CLIENT
 sed -i '/cert client.crt/d' $FILE_CLIENT
